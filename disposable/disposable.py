@@ -185,8 +185,9 @@ class disposableHostGenerator():
         # currently blocked by cloudflare
         # {'type': 'json', 'src': 'https://mob1.temp-mail.org/request/domains/format/json'},
         {'type': 'json', 'src': 'https://api.internal.temp-mail.io/api/v2/domains'},
-        {'type': 'json', 'src': 'https://www.fakemail.net/index/index', 'scrape': True},
+        # {'type': 'json', 'src': 'https://www.fakemail.net/index/index', 'scrape': True},
         {'type': 'json', 'src': 'https://api.mailpoof.com/domains'},
+        {'type': 'json', 'src': 'https://deviceandbrowserinfo.com/api/emails/disposable'},
         {'type': 'file', 'src': 'blacklist.txt', 'ignore_not_exists': True},
         {
             'type': 'html',
@@ -196,22 +197,22 @@ class disposableHostGenerator():
                 DOMAIN_SEARCH_RE
             ]
         },
-        {'type': 'html', 'src': 'https://emailfake.com',
-            'regex': re.compile(r"""change_dropdown_list[^"]+"[^>]+>@?([a-z0-9\.-]{1,128})""", re.I), 'scrape': True},
-        {'type': 'html', 'src': 'https://email-fake.com',
-            'regex': re.compile(r"""change_dropdown_list[^"]+"[^>]+>@?([a-z0-9\.-]{1,128})""", re.I), 'scrape': True},
-        {'type': 'html', 'src': 'https://tempm.com',
-            'regex': re.compile(r"""change_dropdown_list[^"]+"[^>]+>@?([a-z0-9\.-]{1,128})""", re.I), 'scrape': True},
-        {'type': 'html', 'src': 'https://mail-fake.com',
-            'regex': re.compile(r"""change_dropdown_list[^"]+"[^>]+>@?([a-z0-9\.-]{1,128})""", re.I), 'scrape': True},
-        {'type': 'html', 'src': 'https://generator.email',
-            'regex': re.compile(r"""change_dropdown_list[^"]+"[^>]+>@?([a-z0-9\.-]{1,128})""", re.I), 'scrape': True},
+        # {'type': 'html', 'src': 'https://emailfake.com',
+        #     'regex': re.compile(r"""change_dropdown_list[^"]+"[^>]+>@?([a-z0-9\.-]{1,128})""", re.I), 'scrape': True},
+        # {'type': 'html', 'src': 'https://email-fake.com',
+        #     'regex': re.compile(r"""change_dropdown_list[^"]+"[^>]+>@?([a-z0-9\.-]{1,128})""", re.I), 'scrape': True},
+        # {'type': 'html', 'src': 'https://tempm.com',
+        #     'regex': re.compile(r"""change_dropdown_list[^"]+"[^>]+>@?([a-z0-9\.-]{1,128})""", re.I), 'scrape': True},
+        # {'type': 'html', 'src': 'https://mail-fake.com',
+        #     'regex': re.compile(r"""change_dropdown_list[^"]+"[^>]+>@?([a-z0-9\.-]{1,128})""", re.I), 'scrape': True},
+        # {'type': 'html', 'src': 'https://generator.email',
+        #     'regex': re.compile(r"""change_dropdown_list[^"]+"[^>]+>@?([a-z0-9\.-]{1,128})""", re.I), 'scrape': True},
 
 
         {'type': 'html', 'src': 'https://www.guerrillamail.com/en/'},
         {'type': 'html', 'src': 'https://www.trash-mail.com/inbox/'},
-        {'type': 'html', 'src': 'https://mail-temp.com', 'regex':
-            re.compile(r"""change_dropdown_list[^"]+"[^>]+>@?([a-z0-9\.-]{1,128})""", re.I), 'scrape': True},
+        # {'type': 'html', 'src': 'https://mail-temp.com', 'regex':
+            # re.compile(r"""change_dropdown_list[^"]+"[^>]+>@?([a-z0-9\.-]{1,128})""", re.I), 'scrape': True},
         # currently blocked by cloudflare - we probably need some kind of external service or undetected-chromedriver for this...
         # {'type': 'html', 'src': 'https://10minutemail.com/session/address', 'regex': re.compile(r""".+?@?([a-z0-9\.-]{1,128})""", re.I)},
         {'type': 'html', 'src': 'https://correotemporal.org', 'regex': DOMAIN_SEARCH_RE},
@@ -232,7 +233,7 @@ class disposableHostGenerator():
         {'type': 'html', 'src': 'https://tempr.email',
             'regex': re.compile(r"""<option\s+value[^>]*>@?([a-z\-\.\&#;\d+]+)\s*(\(PW\))?<\/option>""", re.I)},
         {'type': 'ws', 'src': 'wss://dropmail.me/websocket'},
-        {'type': 'custom', 'src': 'Tempmailo', 'scrape': True},
+        # {'type': 'custom', 'src': 'Tempmailo', 'scrape': True},
         {
             'type': 'html',
             'src': 'https://yopmail.com/domain?d=all',
