@@ -51,6 +51,11 @@ jobs:
         git add README.md
 
         # Commit the changes
-        git commit -m "Update cache [skip ci]" && git push origin gh-pages --force
+        # Commit the changes
+        if git diff --quiet HEAD; then
+          echo "No changes to commit"
+        else
+          git commit -m "Update cache [skip ci]" && git push origin gh-pages --force
+        fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

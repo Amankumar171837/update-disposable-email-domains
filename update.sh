@@ -11,14 +11,22 @@ fi
 
 tmpfile=$(mktemp)
 
-# Sync dependencies using uv
-echo "📦 Installing dependencies..."
-(cd disposable && uv sync --quiet)
-
-# Run domain generation
-# The Python script now preserves old domains automatically
-echo "🔍 Fetching domains from sources..."
-uv --project disposable run python ./disposable/.generate --dedicated-strict --source-map --dns-verify 2>$tmpfile
+# Sync dependencies and run domain generation
+if command -v uv &> /dev/null; then
+    echo "📦 Installing dependencies with uv..."
+    (cd disposable && uv sync --quiet)
+    
+    echo "🔍 Fetching domains from sources (using uv)..."
+    uv --project disposable run python ./disposable/.generate --dedicated-strict --source-map --dns-verify 2>$tmpfile
+else
+    echo "⚠️  uv not found, falling back to pip/python..."
+    
+    echo "📦 Installing dependencies with pip..."
+    pip3 install -q -r disposable/requirements.txt
+    
+    echo "🔍 Fetching domains from sources (using python)..."
+    python3 ./disposable/.generate --dedicated-strict --source-map --dns-verify 2>$tmpfile
+fi
 
 # Check if there are any changes
 if git diff --quiet domains*.txt domains*.json 2>/dev/null; then
