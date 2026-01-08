@@ -38,8 +38,8 @@ jobs:
         git config --global user.name 'GitHub Actions'
         git config --global user.email 'github-actions@github.com'
 
-        # Switch to gh-pages branch
-        git checkout -b gh-pages
+        # Switch to gh-pages branch (force create/reset)
+        git checkout -B gh-pages
 
         # Add all generated files (if your script generates files to be committed)
         git add cache/ --force

@@ -21,6 +21,10 @@ if command -v uv &> /dev/null; then
 else
     echo "⚠️  uv not found, falling back to pip/python..."
     
+    echo "🔍 Debug: Checking Python environment..."
+    python3 --version
+    pip3 --version
+    
     echo "📦 Installing dependencies with pip..."
     pip3 install -q -r disposable/requirements.txt
     
