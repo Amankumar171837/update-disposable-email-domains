@@ -18745,6 +18745,7 @@ data-protect-job.com
 data-protect-law.com
 data-protection-solutions.com
 data.dropmail.me
+data.email
 data1.nu
 dataaas.com
 dataarca.com
@@ -72086,6 +72087,7 @@ user.tmpmail.net
 userbot.p-e.kr
 userbot.site
 userdrivvers.ru
+userloginstatus.email
 usermania.online
 userpdf.net
 users.idbloc.co
